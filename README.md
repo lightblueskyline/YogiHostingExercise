@@ -11,7 +11,7 @@ git remote add origin https://github.com/lightblueskyline/YogiHostingExercise.gi
 git push -u origin main
 ```
 
-## [ASP.NET Core Tutorials](https://www.yogihosting.com/category/aspnet-core/)
+## ASP.NET Core Tutorials
 
 ### [Introduction to ASP.NET Core](https://www.yogihosting.com/aspnet-core-introduction/)
 
@@ -22,3 +22,7 @@ git push -u origin main
 ```csharp
 using System.ComponentModel.DataAnnotations;
 ```
+
+## Configuration
+
+### [Configuration](https://www.yogihosting.com/aspnet-core-configurations/)
