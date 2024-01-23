@@ -16,3 +16,9 @@ git push -u origin main
 ### [Introduction to ASP.NET Core](https://www.yogihosting.com/aspnet-core-introduction/)
 
 ### [First Application](https://www.yogihosting.com/aspnet-core-first-application/)
+
+### [First CRUD Application](https://www.yogihosting.com/aspnet-core-first-crud-application/)
+
+```csharp
+using System.ComponentModel.DataAnnotations;
+```
