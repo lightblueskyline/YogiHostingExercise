@@ -56,3 +56,7 @@ using System.ComponentModel.DataAnnotations;
 ### [Static Content](https://www.yogihosting.com/aspnet-core-configurations/#static-content)
 
 ### [AppSettings.json](https://www.yogihosting.com/aspnet-core-configurations/#appsettings)
+
+## Dependency Injection
+
+### [Understanding DI](https://www.yogihosting.com/aspnet-core-dependency-injection/)
