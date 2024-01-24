@@ -96,3 +96,13 @@ LibMan or Bower to install Bootstrap package in Visual Studio -> https://www.yog
  Multi File Upload with Progress Bar in ASP.NET CORE -> https://www.yogihosting.com/multi-file-upload-progress-bar-aspnet-core/
  */
 ```
+
+### [Create Controller](https://www.yogihosting.com/aspnet-core-controllers/#create-controller)
+
+### [Transfer Data](https://www.yogihosting.com/aspnet-core-controllers/#transfer-data)
+
+### [Request Property](https://www.yogihosting.com/aspnet-core-controllers/#request-property)
+
+### [Data Parameter](https://www.yogihosting.com/aspnet-core-controllers/#data-parameter)
+
+### [Model Binding](https://www.yogihosting.com/aspnet-core-controllers/#model-binding)
