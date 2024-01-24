@@ -1,0 +1,96 @@
+﻿using UnderstandingControllersViews.Models;
+
+@model UnderstandingControllersViews.Models.Person
+
+@{
+    ViewData["Title"] = "Home Page";
+    var address = ViewData["Address"] as Address;
+}
+
+<div class="text-center">
+    <p>Welcome from <b>Index View</b> of Home Controller</p>
+    <p>Hello: @ViewData["Name"]</p>
+    <p>With Address: @address?.HouseNo, @address?.City</p>
+</div>
+<hr />
+<div>
+    <h1>1. Controllers Request Property – Request.Form</h1>
+    <form asp-action="ReceivedDataByRequest">
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group">
+            <label>Sex:</label>
+            <select class="form-control" name="sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <br />
+        <div class="m-1">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<hr />
+<div>
+    <h1>2. Receive Data in the “Parameters” of Action Methods</h1>
+    <form asp-action="ReceivedDataByParameter">
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group">
+            <label>Sex:</label>
+            <select class="form-control" name="sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <br />
+        <div class="m-1">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<hr />
+<div>
+    <h1>3. Passing data from Query String</h1>
+    <a href="/Home/ReceivedDataByParameter?name=Jack Sparrow&sex=Female" class="link-primary">Primary Link</a>
+</div>
+<hr />
+<div>
+    <h1>4. Transfer View’s data to Controller with Model Binding</h1>
+    <form asp-action="ReceivedDataByModelBinding">
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label>Sex:</label>
+            <select class="form-control" asp-for="Sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <br />
+        <div class="m-1">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<hr />
+<div>
+    <h1>ASP.NET Core Controller for File Uploading</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Photo:</label>
+            <input type="file" class="form-control" name="photo" />
+        </div>
+        <br />
+        <div class="m-1">
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+    </form>
+</div>

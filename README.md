@@ -60,3 +60,39 @@ using System.ComponentModel.DataAnnotations;
 ## Dependency Injection
 
 ### [Understanding DI](https://www.yogihosting.com/aspnet-core-dependency-injection/)
+
+### [Tightly Coupled](https://www.yogihosting.com/aspnet-core-dependency-injection/#tightlycoupled)
+
+### [Implementing](https://www.yogihosting.com/aspnet-core-dependency-injection/#implementing)
+
+### [Dependency Chains](https://www.yogihosting.com/aspnet-core-dependency-injection/#dependencychains)
+
+### [Single Type](https://www.yogihosting.com/aspnet-core-dependency-injection/#singletype)
+
+### [DI Methods](https://www.yogihosting.com/aspnet-core-dependency-injection/#methods)
+
+### [AddTransient Method](https://www.yogihosting.com/aspnet-core-dependency-injection/#addtransient)
+
+### [AddScoped Method](https://www.yogihosting.com/aspnet-core-dependency-injection/#addscoped)
+
+### [AddSingleton Method](https://www.yogihosting.com/aspnet-core-dependency-injection/#addsingleton)
+
+### [Action Injection](https://www.yogihosting.com/aspnet-core-dependency-injection/#actioninjection)
+
+### [Factory Injection](https://www.yogihosting.com/aspnet-core-dependency-injection/#factoryfunction)
+
+## Controllers
+
+### [Controllers](https://www.yogihosting.com/aspnet-core-controllers/)
+
+```csharp
+/**
+ViewData -> ViewDataDictionary 字典類型
+
+LibMan or Bower to install Bootstrap package in Visual Studio -> https://www.yogihosting.com/install-bootstrap-aspnet-core/
+
+將數據從視圖傳遞至控制器 -> FormData objects, Query strings, model binding
+
+ Multi File Upload with Progress Bar in ASP.NET CORE -> https://www.yogihosting.com/multi-file-upload-progress-bar-aspnet-core/
+ */
+```
