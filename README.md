@@ -106,3 +106,42 @@ LibMan or Bower to install Bootstrap package in Visual Studio -> https://www.yog
 ### [Data Parameter](https://www.yogihosting.com/aspnet-core-controllers/#data-parameter)
 
 ### [Model Binding](https://www.yogihosting.com/aspnet-core-controllers/#model-binding)
+
+## Actions
+
+### [Action Methods](https://www.yogihosting.com/aspnet-core-actions/)
+
+```csharp
+/**
+MVC 通常返回：IActionResultis
+WebAPI 通常返回：ActionResult
+ */
+```
+
+### [ViewBag](https://www.yogihosting.com/aspnet-core-actions/#viewbag)
+
+### [TempData](https://www.yogihosting.com/aspnet-core-actions/#tempdata)
+
+### [Session](https://www.yogihosting.com/aspnet-core-actions/#session)
+
+### [Redirections](https://www.yogihosting.com/aspnet-core-actions/#redirections)
+
+### [Redirect](https://www.yogihosting.com/aspnet-core-actions/#redirect)
+
+### [RedirectPermanent](https://www.yogihosting.com/aspnet-core-actions/#redirectpermanent)
+
+### [RedirectToRoute](https://www.yogihosting.com/aspnet-core-actions/#redirecttoroute)
+
+### [RedirectToRoutePermanent](https://www.yogihosting.com/aspnet-core-actions/#redirecttoroutepermanent)
+
+### [RedirectToAction](https://www.yogihosting.com/aspnet-core-actions/#redirecttoaction)
+
+### [RedirectToActionPermanent](https://www.yogihosting.com/aspnet-core-actions/#redirecttoactionpermanent)
+
+### [Return Content](https://www.yogihosting.com/aspnet-core-actions/#return-content)
+
+### [Return JSON](https://www.yogihosting.com/aspnet-core-actions/#return-json)
+
+### [Return OK](https://www.yogihosting.com/aspnet-core-actions/#return-ok)
+
+### [Retrun 400, 401, 404](https://www.yogihosting.com/aspnet-core-actions/#return-400-401-404)

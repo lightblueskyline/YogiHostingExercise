@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@* 注入服務 *@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var p = HttpContextAccessor?.HttpContext?.Session.Get<Person>("MyPersonClass");
+    if (p != null)
+    {
+        <p>@p.Name, @p.Address</p>
+    }
+}
+
+<h2>
+    Current DateTime & Year:
+    @HttpContextAccessor?.HttpContext?.Session.GetString("CurrentDateTime"),
+    @HttpContextAccessor?.HttpContext?.Session.GetInt32("CurrentYear")
+</h2>
