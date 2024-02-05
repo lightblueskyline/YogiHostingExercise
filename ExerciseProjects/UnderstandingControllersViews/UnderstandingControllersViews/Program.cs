@@ -1,3 +1,5 @@
+using UnderstandingControllersViews.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +14,9 @@ builder.Services.AddSession(options =>
 });
 // Enable Session 添加將要注入的服務
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddTransient<Coupon>();
+builder.Services.AddTransient<Joke>();
 
 var app = builder.Build();
 
@@ -33,6 +38,9 @@ app.UseAuthorization();
 // Enable Session
 app.UseSession();
 
+app.MapControllerRoute(
+    name: "MyArea",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -145,3 +145,15 @@ WebAPI 通常返回：ActionResult
 ### [Return OK](https://www.yogihosting.com/aspnet-core-actions/#return-ok)
 
 ### [Retrun 400, 401, 404](https://www.yogihosting.com/aspnet-core-actions/#return-400-401-404)
+
+## Views
+
+### [MVC View](https://www.yogihosting.com/aspnet-core-views/)
+
+[How to use Globalization and localization in ASP.NET Core to create a Multilingual site](https://www.yogihosting.com/how-to-use-globalization-and-localization-in-asp-net-core/)  
+[How to Implement Cookie Authentication in ASP.NET Core](https://www.yogihosting.com/aspnet-core-cookie-authentication/)  
+[Install Bootstrap package in our ASP.NET Core](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
+[Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[ASP.NET Core Routing: Generating Outgoing URLs in Views](https://www.yogihosting.com/aspnet-core-generating-url-routing/)  
+[Dependency Injection](https://www.yogihosting.com/aspnet-core-dependency-injection/)

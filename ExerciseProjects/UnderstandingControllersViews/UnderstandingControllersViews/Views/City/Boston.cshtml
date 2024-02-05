@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Welcome to Boston</h1>
+
+@if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+{
+    <p>It's a Boring Day</p>
+}
+else
+{
+    <p>It's a Party Day</p>
+}
+
+@{
+    string[] countries = new string[] { "England", "France", "Germany", "China" };
+    <div>
+        <ul>
+            @foreach (string country in countries)
+            {
+                <li>@country</li>
+            }
+        </ul>
+    </div>
+}

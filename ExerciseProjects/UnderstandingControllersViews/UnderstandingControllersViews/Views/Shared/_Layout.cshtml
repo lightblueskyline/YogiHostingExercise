@@ -1,12 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - UnderstandingControllersViews</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/UnderstandingControllersViews.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -20,30 +18,56 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-controller="City" asp-action="NewYork">New York</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="City" asp-action="Boston">Boston</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="CallSharedView">Shared View</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Example" asp-action="CallSharedView">Shared View</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Admin" asp-action="List">Search View</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Sales" asp-controller="Admin" asp-action="List">Area View</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <div class="p-3 mb-2 border border-info">
+        @await Component.InvokeAsync("Cart", new { showCart = true })
+    </div>
+    @await Component.InvokeAsync("PageSize")
+    <hr />
+
+    @RenderSection("Top", false)
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+    @RenderSection("Bottom", false)
+
+    @RenderSection("Ads", false)
+
+    @RenderSection("Script", false)
+
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - UnderstandingControllersViews - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            ASP.NET Core Site
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -146,5 +146,10 @@ namespace UnderstandingControllersViews.Controllers
             //or return NotFound();
         }
         #endregion
+
+        public IActionResult CallSharedView()
+        {
+            return View();
+        }
     }
 }
