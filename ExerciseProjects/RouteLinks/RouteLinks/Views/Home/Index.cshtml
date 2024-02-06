@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Check">Outgoing URL</a>
+</div>
+
+<div>
+    <a asp-controller="Customer" asp-action="Check">Check action of Customer Controller</a>
+</div>
+
+<div>
+    <a asp-action="Index">Go to Index</a>
+</div>
+
+<div>
+    <a asp-controller="Admin" asp-action="Index">Index Action of Admin Controller</a>
+</div>
+
+<div>
+    <a asp-controller="Product" asp-action="Index" asp-route-id="100">Pass 100 to the id segment</a>
+</div>
+
+<!--Passing Value to Query Sting-->
+<div>
+    <a asp-controller="Product" asp-action="Index" asp-route-id="100" asp-route-name="Apple">Query String</a>
+</div>
+
+<!--Generating Links from a Specific Route-->
+<div>
+    <a asp-route="sales">Sales</a>
+</div>
+
+<!--Url.Action-->
+<div>
+    @Url.Action("List", "Product", new { id = 10 })
+</div>
+
+<!--URL Fragment (#)-->
+<div>
+    <a asp-controller="Product" asp-action="List" asp-fragment="Printing">URL Fragment</a>
+</div>

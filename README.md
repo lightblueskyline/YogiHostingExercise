@@ -157,3 +157,47 @@ WebAPI 通常返回：ActionResult
 [Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
 [ASP.NET Core Routing: Generating Outgoing URLs in Views](https://www.yogihosting.com/aspnet-core-generating-url-routing/)  
 [Dependency Injection](https://www.yogihosting.com/aspnet-core-dependency-injection/)
+
+### [View Search](https://www.yogihosting.com/aspnet-core-views/#view-search)
+
+### [_Layout.cshtml](https://www.yogihosting.com/aspnet-core-views/#layout)
+
+### [Sections](https://www.yogihosting.com/aspnet-core-views/#sections)
+
+### [Partial Views](https://www.yogihosting.com/aspnet-core-views/#partial-views)
+
+### [View Components](https://www.yogihosting.com/aspnet-core-views/#view-components)
+
+### [Asynchronous View Components](https://www.yogihosting.com/aspnet-core-views/#asynchronous-view-component)
+
+## URL Routing
+
+### [URL Routing](https://www.yogihosting.com/aspnet-core-url-routing/)
+
+[Model Binding feature of ASP.NET Core](https://www.yogihosting.com/aspnet-core-model-binding/)
+
+### [Endpoint Routing](https://www.yogihosting.com/aspnet-core-endpoint-routing/)
+
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)
+
+### [Route Constrainitng](https://www.yogihosting.com/aspnet-core-route-constraint/)
+
+[ASP.NET Core JWT Authentication and Authorization of Web API [Detailed]](https://www.yogihosting.com/jwt-api-aspnet-core/)
+
+### [Attribute Routing](https://www.yogihosting.com/aspnet-core-attribute-routing/)
+
+[Learn to use Filters in ASP.NET core from beginning to expert level](https://www.yogihosting.com/aspnet-core-filters/)  
+[How to Create Web APIs in ASP.NET Core [RESTful pattern]](https://www.yogihosting.com/aspnet-core-api-controllers/)
+
+### [Generating URLs](https://www.yogihosting.com/aspnet-core-generating-url-routing/)
+
+[How to use Globalization and localization in ASP.NET Core](https://www.yogihosting.com/how-to-use-globalization-and-localization-in-asp-net-core/)  
+[How to secure APIs with JWT in ASP.NET Core [with source codes]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
+[Advanced Topics on Filters in ASP.NET Core – Filters with Dependencies, Global Filters, Order of Execution of Filters & Changing Filter Order](https://www.yogihosting.com/advanced-filters-topics-aspnet-core/)  
+[Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)
+
+### [Areas](https://www.yogihosting.com/aspnet-core-areas/)
+
+[Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
+[Custom Tag Helper in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)  
+[How to perform various Configurations in ASP.NET Core project](https://www.yogihosting.com/aspnet-core-configurations/)
