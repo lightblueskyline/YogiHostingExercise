@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Reservation</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <style>
+    table a,
+    table img {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>All Reservations</h2>
+    <a href="AddReservation.html" class="btn btn-sm btn-primary">Add Reservation</a>
+    <a href="GetReservation.html" class="btn btn-sm btn-secondary">Get Reservation</a>
+    <a href="AddFile.html" class="btn btn-sm btn-secondary">Add File</a>
+    <table class="table table-sm table-striped table-bordered m-2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Start Location</th>
+          <th>End Location</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      ShowAllReservation();
+
+      function ShowAllReservation() {
+        $("table tbody").html("");
+        $.ajax({
+          url: "https://localhost:7244/api/Reservation",
+          type: "get",
+          contentType: "application/json",
+          success: function (result, status, xhr) {
+            $.each(result, function (index, value) {
+              $("tbody").append($("<tr>"));
+              appendElement = $("tbody tr").last();
+              appendElement.append($("<td>").html(value["id"]));
+              appendElement.append($("<td>").html(value["name"]));
+              appendElement.append($("<td>").html(value["startLocation"]));
+              appendElement.append($("<td>").html(value["endLocation"]));
+              appendElement.append($("<td>").html("<a href=\"UpdateReservationPatch.html?id=" + value["id"] + "\"><img src=\"icon/edit.png\" /></a>"));
+              appendElement.append($("<td>").html("<img class=\"delete\" src=\"icon/close.png\" />"));
+            });
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr)
+          }
+        });
+      }
+
+      $("table").on("click", "img.delete", function () {
+        var reservationId = $(this).parents("tr").find("td:nth-child(1)").text();
+
+        $.ajax({
+          url: "https://localhost:7244/api/Reservation/" + reservationId,
+          type: "delete",
+          contentType: "application/json",
+          success: function (result, status, xhr) {
+            ShowAllReservation();
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr)
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>

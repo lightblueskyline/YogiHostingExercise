@@ -201,3 +201,28 @@ WebAPI 通常返回：ActionResult
 [Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
 [Custom Tag Helper in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)  
 [How to perform various Configurations in ASP.NET Core project](https://www.yogihosting.com/aspnet-core-configurations/)
+
+## Web API
+
+### [Creating Web API](https://www.yogihosting.com/aspnet-core-api-controllers/)
+
+[Learn Attribute Routing in ASP.NET Core](https://www.yogihosting.com/aspnet-core-attribute-routing/)  
+[How to secure APIs with JWT in ASP.NET Core [with source codes]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
+[Model Binding concept of ASP.NET Core](https://www.yogihosting.com/aspnet-core-model-binding/)
+
+### [Call Web API](https://www.yogihosting.com/aspnet-core-consume-api/)
+
+[How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
+[Model Validation in ASP.NET Core from Beginning to Expert](https://www.yogihosting.com/aspnet-core-model-validation/)  
+[How to do Authentication of Users in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-authentication/)  
+[How to integrate Google login feature in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-login-with-google/)  
+[How to secure APIs with JWT in ASP.NET Core](https://www.yogihosting.com/jwt-api-aspnet-core/)  
+[ASP.NET Core Model Binding feature](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)
+
+### [Call Web API from jQuery](https://www.yogihosting.com/aspnet-core-consume-api-jquery/)
+
+[Controllers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-controllers/)  
+[jQuery .ajax() method](https://www.yogihosting.com/jquery-ajax/)  
+[jQuery .on() method](https://www.yogihosting.com/jquery-on/)  
+[jQuery nth child](https://www.yogihosting.com/jquery-nth-child/)
