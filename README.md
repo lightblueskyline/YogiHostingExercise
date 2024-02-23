@@ -250,3 +250,19 @@ WebAPI 通常返回：ActionResult
 [Configuring Application in ASP.NET Core](https://www.yogihosting.com/aspnet-core-configurations/)  
 [dependency injection feature of ASP.NET Core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
 [How to secure APIs with JWT in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)
+
+## Model Binding
+
+### [Model Binding in ASP.NET Core](https://www.yogihosting.com/aspnet-core-model-binding/)
+
+```csharp
+/**
+搜索順序 1.Form data values > 2.Routing variables > 3.Query strings
+ */
+```
+
+[Controllers Request Property – Request.Form](https://www.yogihosting.com/aspnet-core-controllers/#request-property)  
+[Learn ASP.NET Core Convention-Based URL Routing](https://www.yogihosting.com/aspnet-core-url-routing/)  
+[How to use Try Catch Block to Catch Exceptions](https://www.yogihosting.com/try-catch-block/)  
+[Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
+[EF Core tutorials](https://www.yogihosting.com/category/ef-core/)
