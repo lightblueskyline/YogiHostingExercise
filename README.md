@@ -232,3 +232,21 @@ WebAPI 通常返回：ActionResult
 ### [Call Web API from JavaScript](https://www.yogihosting.com/aspnet-core-web-api-javascript/)
 
 [How to secure APIs with JWT in ASP.NET Core](https://www.yogihosting.com/jwt-api-aspnet-core/)
+
+## Tag Helpers
+
+### [Introduction](https://www.yogihosting.com/aspnet-core-introduction-tag-helpers/)
+
+[Dependency Injection Tutorial](https://www.yogihosting.com/aspnet-core-dependency-injection/)
+
+### [Built-In Tag Helpers](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)
+
+[Model Binding](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[Model Validation Tutorial](https://www.yogihosting.com/aspnet-core-model-validation/)
+
+### [Custom Tag Helpers](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)
+
+[Create Number Paging with Custom Tag Helper in ASP.NET Core](https://www.yogihosting.com/aspnet-core-paging/)  
+[Configuring Application in ASP.NET Core](https://www.yogihosting.com/aspnet-core-configurations/)  
+[dependency injection feature of ASP.NET Core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[How to secure APIs with JWT in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)
