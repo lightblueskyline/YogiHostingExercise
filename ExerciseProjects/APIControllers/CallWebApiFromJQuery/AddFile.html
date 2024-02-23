@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Add File</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Add File</h2>
+    <p>
+      <a href="AllReservation.html" class="btn btn-sm btn-primary">Back</a>
+    </p>
+    <input type="file" id="File" />
+    <br />
+    <div class="text-center panel-body">
+      <button id="AddButton" type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+    <div id="fileDiv" style="display:none">
+      <h2>Uploaded File</h2>
+      <img id="fileImg" />
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#AddButton").click(function (e) {
+        data = new FormData();
+        data.append("file", $("#File")[0].files[0]);
+
+        $.ajax({
+          url: "https://localhost:7244/api/Reservation/UploadFile",
+          type: "post",
+          data: data,
+          processData: false,
+          contentType: false,
+          success: function (result, status, xhr) {
+            $("#fileImg").attr("src", result);
+            $("#fileDiv").show();
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr)
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

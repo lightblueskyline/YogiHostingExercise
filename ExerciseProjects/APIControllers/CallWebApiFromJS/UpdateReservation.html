@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Update Reservation</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Update a Reservation <a href="AllReservation.html" class="btn btn-sm btn-secondary">Back</a></h2>
+    <div class="form-group">
+      <label asp-for="Id"></label>
+      <input type="text" class="form-control" id="Id" readonly />
+    </div>
+    <div class="form-group">
+      <label for="Name">Name:</label>
+      <input type="text" class="form-control" id="Name" />
+    </div>
+    <div class="form-group">
+      <label for="StartLocation">Start Location:</label>
+      <input type="text" class="form-control" id="StartLocation" />
+    </div>
+    <div class="form-group">
+      <label for="EndLocation">End Location:</label>
+      <input type="text" class="form-control" id="EndLocation" />
+    </div>
+    <br />
+    <div class="text-center panel-body">
+      <button type="submit" class="btn btn-sm btn-primary" id="UpdateButton"
+        onclick="UpdateReservation()">Update</button>
+    </div>
+
+    <div style="display:none" id="resultDiv">
+      <h2>Reservation</h2>
+      <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Start Location</th>
+            <th>End Location</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    GetReservation();
+
+    function GetReservation() {
+      let params = (new URL(document.location)).searchParams;
+      let id = params.get("id");
+
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var response = JSON.parse(this.responseText);
+          document.getElementById("Id").value = response.id;
+          document.getElementById("Name").value = response.name;
+          document.getElementById("StartLocation").value = response.startLocation;
+          document.getElementById("EndLocation").value = response.endLocation;
+        }
+      };
+
+      xhttp.open("GET", "https://localhost:7244/api/Reservation/" + id, true);
+      xhttp.send();
+    }
+
+    function UpdateReservation() {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var response = JSON.parse(this.responseText);
+          var tbody = document.getElementById("resultDiv").querySelector("tbody");
+          tbody.innerHTML = "<tr><td>" + response.id + "</td><td>" + response.name + "</td><td>" + response.startLocation + "</td><td>" + response.endLocation + "</td></tr>";
+          document.getElementById("resultDiv").style.display = "block";
+        }
+      };
+
+      xhttp.open("PUT", "https://localhost:7244/api/Reservation", true);
+      data = new FormData();
+      data.append("Id", document.getElementById("Id").value);
+      data.append("Name", document.getElementById("Name").value);
+      data.append("StartLocation", document.getElementById("StartLocation").value);
+      data.append("EndLocation", document.getElementById("EndLocation").value);
+      xhttp.send(data);
+    }
+  </script>
+</body>
+
+</html>

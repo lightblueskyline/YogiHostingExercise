@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Add File</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Add File</h2>
+    <p>
+      <a href="AllReservation.html" class="btn btn-sm btn-primary">Back</a>
+    </p>
+    <input type="file" id="File" />
+    <br />
+    <div class="text-center panel-body">
+      <button id="AddButton" onclick="UploadFile()" type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+
+    <div id="fileDiv" style="display:none">
+      <h2>Uploaded File</h2>
+      <img id="fileImg" />
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function UploadFile() {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("fileImg").src = this.response;
+          document.getElementById("fileDiv").style.display = "block";
+        }
+      };
+
+      xhttp.open("POST", "https://localhost:7244/api/Reservation/UploadFile", true);
+      data = new FormData();
+      data.append("file", document.getElementById("File").files[0]);
+      xhttp.send(data);
+    }
+  </script>
+</body>
+
+</html>

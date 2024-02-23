@@ -30,6 +30,7 @@
           <th>End Location</th>
           <th>Update</th>
           <th>Delete</th>
+          <th>Patch</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -53,8 +54,9 @@
               appendElement.append($("<td>").html(value["name"]));
               appendElement.append($("<td>").html(value["startLocation"]));
               appendElement.append($("<td>").html(value["endLocation"]));
-              appendElement.append($("<td>").html("<a href=\"UpdateReservationPatch.html?id=" + value["id"] + "\"><img src=\"icon/edit.png\" /></a>"));
+              appendElement.append($("<td>").html("<a href=\"UpdateReservation.html?id=" + value["id"] + "\"><img src=\"icon/edit.png\" /></a>"));
               appendElement.append($("<td>").html("<img class=\"delete\" src=\"icon/close.png\" />"));
+              appendElement.append($("<td>").html("<a href=\"UpdateReservationPatch.html?id=" + value["id"] + "\"><img src=\"icon/edit.png\" /></a>"));
             });
           },
           error: function (xhr, status, error) {

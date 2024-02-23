@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Update Reservation Patch</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Update a Reservation (HTTP PATCH)<a href="AllReservation.html" class="btn btn-sm btn-secondary">Back</a></h2>
+    <div class="form-group">
+      <label asp-for="Id"></label>
+      <input type="text" class="form-control" id="Id" readonly />
+    </div>
+    <div class="form-group">
+      <label for="Name">Name:</label>
+      <input type="text" class="form-control" id="Name" />
+    </div>
+    <div class="form-group">
+      <label for="StartLocation">Start Location:</label>
+      <input type="text" class="form-control" id="StartLocation" />
+    </div>
+    <div class="form-group">
+      <label for="EndLocation">End Location:</label>
+      <input type="text" class="form-control" id="EndLocation" />
+    </div>
+    <br />
+    <div class="text-center panel-body">
+      <button type="submit" class="btn btn-sm btn-primary" id="UpdateButton">UpdatePatch</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      GetReservation();
+
+      function GetReservation() {
+        let params = (new URL(document.location)).searchParams;
+        let id = params.get("id");
+
+        $.ajax({
+          url: "https://localhost:7244/api/Reservation/" + id,
+          type: "get",
+          contentType: "application/json",
+          success: function (result, status, xhr) {
+            $("#Id").val(result["id"]);
+            $("#Name").val(result["name"]);
+            $("#StartLocation").val(result["startLocation"]);
+            $("#EndLocation").val(result["endLocation"]);
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr)
+          }
+        });
+      }
+
+      $("#UpdateButton").click(function (e) {
+        let params = (new URL(document.location)).searchParams;
+        let id = params.get("id");
+
+        $.ajax({
+          url: "https://localhost:7244/api/Reservation/" + id,
+          type: "patch",
+          contentType: "application/json",
+          data: JSON.stringify([
+            {
+              op: "replace",
+              path: "Name",
+              value: $("#Name").val()
+            },
+            {
+              op: "replace",
+              path: "StartLocation",
+              value: $("#StartLocation").val()
+            }
+          ]),
+          success: function (result, status, xhr) {
+            window.location.href = "AllReservation.html";
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr)
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

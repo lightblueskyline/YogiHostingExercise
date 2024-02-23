@@ -225,4 +225,10 @@ WebAPI 通常返回：ActionResult
 [Controllers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-controllers/)  
 [jQuery .ajax() method](https://www.yogihosting.com/jquery-ajax/)  
 [jQuery .on() method](https://www.yogihosting.com/jquery-on/)  
-[jQuery nth child](https://www.yogihosting.com/jquery-nth-child/)
+[jQuery nth child](https://www.yogihosting.com/jquery-nth-child/)  
+[How to work with Roles in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-roles/)  
+[ASP.NET Core Dependency Injection feature from this tutorial](https://www.yogihosting.com/aspnet-core-dependency-injection/)
+
+### [Call Web API from JavaScript](https://www.yogihosting.com/aspnet-core-web-api-javascript/)
+
+[How to secure APIs with JWT in ASP.NET Core](https://www.yogihosting.com/jwt-api-aspnet-core/)

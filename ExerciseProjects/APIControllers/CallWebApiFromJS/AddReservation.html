@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Add Reservation</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Add a Reservation <a href="AllReservation.html" class="btn btn-sm btn-secondary">Back</a></h2>
+    <div class="form-group">
+      <label for="Name">Name:</label>
+      <input type="text" class="form-control" id="Name" />
+    </div>
+    <div class="form-group">
+      <label for="StartLocation">Start Location:</label>
+      <input type="text" class="form-control" id="StartLocation" />
+    </div>
+    <div class="form-group">
+      <label for="EndLocation">End Location:</label>
+      <input type="text" class="form-control" id="EndLocation" />
+    </div>
+    <br />
+    <div class="text-center panel-body">
+      <button type="submit" class="btn btn-sm btn-primary" id="AddButton" onclick="AddReservation()">Add</button>
+    </div>
+
+    <div style="display:none" id="resultDiv">
+      <h2>Reservation</h2>
+      <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Start Location</th>
+            <th>End Location</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function AddReservation() {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var response = JSON.parse(this.responseText);
+          var tbody = document.getElementById("resultDiv").querySelector("tbody");
+          tbody.innerHTML = "<tr><td>" + response.id + "</td><td>" + response.name + "</td><td>" + response.startLocation + "</td><td>" + response.endLocation + "</td></tr>";
+          document.getElementById("resultDiv").style.display = "block";
+        }
+      };
+
+      xhttp.open("POST", "https://localhost:7244/api/Reservation", true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.setRequestHeader("Key", "Secret@123");
+      var obj = { Id: 0, Name: document.getElementById("Name").value, StartLocation: document.getElementById("StartLocation").value, EndLocation: document.getElementById("EndLocation").value };
+      xhttp.send(JSON.stringify(obj));
+    }
+  </script>
+</body>
+
+</html>

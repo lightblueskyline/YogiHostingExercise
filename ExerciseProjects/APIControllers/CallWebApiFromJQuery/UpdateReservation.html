@@ -58,7 +58,7 @@
         let id = params.get("id");
 
         $.ajax({
-          url: "https://localhost:44324/api/Reservation/" + id,
+          url: "https://localhost:7244/api/Reservation/" + id,
           type: "get",
           contentType: "application/json",
           success: function (result, status, xhr) {
@@ -84,7 +84,7 @@
         data.append("EndLocation", $("#EndLocation").val());
 
         $.ajax({
-          url: "https://localhost:44324/api/Reservation",
+          url: "https://localhost:7244/api/Reservation",
           type: "put",
           data: data,
           processData: false,
