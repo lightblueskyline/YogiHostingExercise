@@ -19,7 +19,7 @@ namespace ModelBindingValidation.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(IFormFile file)
         {
-            string path = Path.Combine(hostingEnvironment.WebRootPath, "Images/" + file.FileName);
+            string path = Path.Combine(hostingEnvironment.WebRootPath, $"Images/{file.FileName}");
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await file.CopyToAsync(stream);

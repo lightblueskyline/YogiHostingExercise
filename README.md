@@ -258,6 +258,8 @@ WebAPI 通常返回：ActionResult
 ```csharp
 /**
 搜索順序 1.Form data values > 2.Routing variables > 3.Query strings
+
+Routing & Query String variables 不可包含複雜類型
  */
 ```
 

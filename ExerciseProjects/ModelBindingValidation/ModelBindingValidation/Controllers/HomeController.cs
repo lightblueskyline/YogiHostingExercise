@@ -42,12 +42,22 @@ namespace ModelBindingValidation.Controllers
         [HttpPost]
         public IActionResult DisplayPerson([Bind(Prefix = nameof(Employee.HomeAddress))] PersonAddress personAddress)
         {
+            /**
+             * 依據畫面
+             * @model ModelBindingValidation.Models.Employee
+             * HomeAddress.City
+             * HomeAddress.Country
+             * 判斷需要添加前綴 [Bind(Prefix = nameof(Employee.HomeAddress))]
+             */
             return View(personAddress);
         }
 
         [HttpPost]
         public IActionResult DisplayPerson1([Bind(nameof(PersonAddress.City), Prefix = nameof(Employee.HomeAddress))] PersonAddress personAddress)
         {
+            /**
+             * 模型綁定時，只綁定至屬性 nameof(PersonAddress.City)
+             */
             return View("DisplayPerson", personAddress);
         }
         #endregion
