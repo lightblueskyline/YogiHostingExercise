@@ -62,6 +62,65 @@ namespace ModelBindingValidation.Controllers
         }
         #endregion
 
+        #region Advanced Model Binding
+
+        #region Model Binding in Arrays
+        public IActionResult Places(string[] places) => View(places);
+        #endregion
+
+        #region Model Binding in Collections
+        public IActionResult Places1(List<string> places) => View(places);
+        #endregion
+
+        #region Model Binding in Collections of Complex Types
+        public IActionResult Address() => View();
+
+        [HttpPost]
+        public IActionResult Address(List<PersonAddress> address) => View(address);
+        #endregion
+
+        #region FromForm
+        public IActionResult FromFormExample() => View();
+
+        [HttpPost]
+        public IActionResult FromFormExample([FromForm] Employee model)
+        {
+            ViewBag.Message = "Employee data received";
+            return View();
+        }
+
+        public IActionResult FromFormExample1() => View();
+
+        [HttpPost]
+        public Employee FromFormExample1([FromForm] Employee model) => model;
+        #endregion
+
+        #region FromBody
+        public IActionResult Body() => View();
+
+        [HttpPost]
+        public Employee Body([FromBody] Employee model) => model;
+        #endregion
+
+        #region FromQuery
+
+        #endregion
+
+        #region FromHeader
+        public string Header([FromHeader(Name = "User-Agent")] string accept) => $"Header: {accept}";
+
+        public IActionResult FullHeader(FullHeader model) => View(model);
+        #endregion
+
+        #region FromRoute
+        public IActionResult FromRouteExample() => View();
+
+        [HttpPost]
+        public string FromRouteExample([FromRoute] string id) => id;
+        #endregion
+
+        #endregion
+
         public IActionResult Privacy()
         {
             return View();

@@ -268,3 +268,13 @@ Routing & Query String variables 不可包含複雜類型
 [How to use Try Catch Block to Catch Exceptions](https://www.yogihosting.com/try-catch-block/)  
 [Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
 [EF Core tutorials](https://www.yogihosting.com/category/ef-core/)
+
+### [Advanced Model Binding](https://www.yogihosting.com/aspnet-core-advanced-model-binding/)
+
+```csharp
+/**
+ */
+```
+
+[Update a Reservation Records through the Web API](https://www.yogihosting.com/aspnet-core-consume-api/#update)  
+[Create a Reservation Record by Calling the Web API](https://www.yogihosting.com/aspnet-core-consume-api/#create)
