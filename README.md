@@ -278,3 +278,18 @@ Routing & Query String variables 不可包含複雜類型
 
 [Update a Reservation Records through the Web API](https://www.yogihosting.com/aspnet-core-consume-api/#update)  
 [Create a Reservation Record by Calling the Web API](https://www.yogihosting.com/aspnet-core-consume-api/#create)
+
+## [Model Validation](https://www.yogihosting.com/aspnet-core-model-validation/)
+
+```csharp
+/** */
+```
+
+1. Server Side Validations
+2. Client Side Validations
+
+[Model Binding technique](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[Advanced Model Binding Concepts in ASP.NET Core](https://www.yogihosting.com/aspnet-core-advanced-model-binding/)  
+[Custom Tag Helper in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)  
+[ADO.NET – Create Records in ASP.NET Core](https://www.yogihosting.com/create-records-ado-net-aspnet-core/)  
+[LibMan here](https://www.yogihosting.com/install-bootstrap-aspnet-core/)
