@@ -8,7 +8,7 @@ git add README.md
 git commit -m "first commit"
 # git branch -M main
 git remote add origin https://github.com/lightblueskyline/YogiHostingExercise.git
-git push -u origin main
+git push -u origin master
 ```
 
 ## ASP.NET Core Tutorials
