@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    ViewData["Title"] = "Browser Page";
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+}
+
+<table class="table culture-table">
+    <tr>
+        <td>Culture</td>
+        <td>
+            @requestCulture.RequestCulture.Culture.Name
+        </td>
+    </tr>
+    <tr>
+        <td>UICulture</td>
+        <td>
+            @requestCulture.RequestCulture.UICulture.Name
+        </td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>
+            @DateTime.Now.ToLongDateString()
+        </td>
+    </tr>
+    <tr>
+        <td>Currency</td>
+        <td>
+            @(12345.00.ToString("c"))
+        </td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>
+            @(123.45m.ToString("F2"))
+        </td>
+    </tr>
+</table>

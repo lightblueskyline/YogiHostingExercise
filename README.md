@@ -319,3 +319,17 @@ Exception Filters 當異常出現時執行
 [Dependency Injection feature](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
 [ASP.NET Core Views](https://www.yogihosting.com/aspnet-core-views/)  
 [Advanced Model Binding Concepts in ASP.NET Core](https://www.yogihosting.com/aspnet-core-advanced-model-binding/)
+
+## Globalization & Localization
+
+### [Using Globalization & Localization](https://www.yogihosting.com/how-to-use-globalization-and-localization-in-asp-net-core/)
+
+1. Culture affects how culture-dependent data (dates, currencies, numbers and so on) is presented.
+2. UICulture affects which resource file (Resources.lang.resx) is going to be loaded to by your application.
+
+[ASP.NET Core Configurations](https://www.yogihosting.com/aspnet-core-configurations/)  
+[How to implement gRPC in ASP.NET Core](https://www.yogihosting.com/grpc-aspnet-core/)  
+[What is Endpoint Routing, Implementing it from start [with codes]](https://www.yogihosting.com/aspnet-core-endpoint-routing/)  
+[How to secure APIs with JWT in ASP.NET Core [with source codes]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
+[Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[Model Validation in ASP.NET Core from Beginning to Expert](https://www.yogihosting.com/aspnet-core-model-validation/)
