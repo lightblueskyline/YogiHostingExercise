@@ -293,3 +293,23 @@ Routing & Query String variables 不可包含複雜類型
 [Custom Tag Helper in ASP.NET Core](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)  
 [ADO.NET – Create Records in ASP.NET Core](https://www.yogihosting.com/create-records-ado-net-aspnet-core/)  
 [LibMan here](https://www.yogihosting.com/install-bootstrap-aspnet-core/)
+
+## Filters
+
+### [Learn Filters](https://www.yogihosting.com/aspnet-core-filters/)
+
+#### 過濾器執行順序
+
+1. Authorization Filters
+2. Action Filters
+3. Result Filters
+
+Exception Filters 當異常出現時執行
+
+[How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
+[How to use Globalization and localization in ASP.NET Core to create a Multilingual site](https://www.yogihosting.com/how-to-use-globalization-and-localization-in-asp-net-core/)  
+[Different types of View methods](https://www.yogihosting.com/aspnet-core-actions/)  
+[How to Implement Cookie Authentication in ASP.NET Core](https://www.yogihosting.com/aspnet-core-cookie-authentication/)  
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
+[Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[ASP.NET Core Built-in Tag Helpers](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)
