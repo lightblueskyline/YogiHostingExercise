@@ -313,3 +313,9 @@ Exception Filters 當異常出現時執行
 [How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
 [Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
 [ASP.NET Core Built-in Tag Helpers](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)
+
+### [Advanced Topics](https://www.yogihosting.com/advanced-filters-topics-aspnet-core/)
+
+[Dependency Injection feature](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[ASP.NET Core Views](https://www.yogihosting.com/aspnet-core-views/)  
+[Advanced Model Binding Concepts in ASP.NET Core](https://www.yogihosting.com/aspnet-core-advanced-model-binding/)

@@ -1,3 +1,5 @@
+using Filters.CustomFilters;
+
 namespace Filters
 {
     public class Program
@@ -8,6 +10,22 @@ namespace Filters
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // ASP.NET Core Filters Dependency Injection
+            builder.Services.AddScoped<IExceptionFilterMessage, ExceptionFilterMessage>();
+
+            #region ASP.NET Core Global Filters
+            // 第一步
+            //builder.Services.AddScoped<TimeElapsed>();
+            // 第二步
+            builder.Services.AddMvc().AddMvcOptions(options =>
+            {
+                //options.Filters.AddService(typeof(TimeElapsed));
+
+                // ASP.NET Core Filters Execution Order
+                //options.Filters.Add(new ShowMessage("Global"));
+            });
+            #endregion
 
             var app = builder.Build();
 

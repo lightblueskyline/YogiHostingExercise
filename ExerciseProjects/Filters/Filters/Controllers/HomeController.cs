@@ -43,7 +43,8 @@ namespace Filters.Controllers
         [HybridActRes] // Hybrid Action/Result Filter
         public IActionResult Message() => View();
 
-        [CatchError] // ASP.NET Core Exception Filters
+        //[CatchError] // ASP.NET Core Exception Filters
+        [TypeFilter(typeof(CatchErrorMessage))] // ASP.NET Core Filters Dependency Injection
         public IActionResult Exception(int? id)
         {
             if (id == null)
