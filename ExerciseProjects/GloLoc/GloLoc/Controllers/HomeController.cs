@@ -2,6 +2,7 @@ using GloLoc.Models;
 
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 using System.Diagnostics;
 
@@ -10,10 +11,12 @@ namespace GloLoc.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStringLocalizer<HomeController> _localizer;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
         {
             _logger = logger;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
@@ -50,6 +53,21 @@ namespace GloLoc.Controllers
 
         #region AcceptLanguageHeaderRequestCultureProvider
         public IActionResult Browser() => View();
+        #endregion
+
+        #region Controllers localization using Resource files
+        public IActionResult JobApplicationIndex() => View();
+
+        [HttpPost]
+        public IActionResult JobApplicationIndex(JobApplication jobApplication)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = _localizer["Your application is accepted"];
+            }
+
+            return View();
+        }
         #endregion
     }
 }

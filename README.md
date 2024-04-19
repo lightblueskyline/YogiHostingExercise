@@ -333,3 +333,11 @@ Exception Filters 當異常出現時執行
 [How to secure APIs with JWT in ASP.NET Core [with source codes]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
 [Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
 [Model Validation in ASP.NET Core from Beginning to Expert](https://www.yogihosting.com/aspnet-core-model-validation/)
+
+### [Resource Files](https://www.yogihosting.com/globalization-localization-resource-files-aspnet-core/)
+
+[How to implement gRPC in ASP.NET Core](https://www.yogihosting.com/grpc-aspnet-core/)  
+[dependency injection feature of asp.net core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[How to secure APIs with JWT in ASP.NET Core [with source codes]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
+[Model Binding in ASP.NET Core from Beginners to Advanced](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[Model Validation in ASP.NET Core from Beginning to Expert](https://www.yogihosting.com/aspnet-core-model-validation/)
