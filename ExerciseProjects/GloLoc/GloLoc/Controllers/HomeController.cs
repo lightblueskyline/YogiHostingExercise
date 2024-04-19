@@ -69,5 +69,15 @@ namespace GloLoc.Controllers
             return View();
         }
         #endregion
+
+        #region Portable Object(PO) Files
+        public IActionResult POFilesIndex()
+        {
+            // Reading translated values from PO files in Controllers
+            string translatedString = _localizer["Hello world!"];
+
+            return View();
+        }
+        #endregion
     }
 }

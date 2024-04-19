@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "Portable Object(PO) Files";
+}
+
+<h3>@Localizer["Hello world!"]</h3>
+
+<p>@Localizer["thanks"]</p>
+
+<p>@Localizer.Plural(1, "There is one item.", "There are {0} items.")</p>
+<p>@Localizer.Plural(2, "There is one item.", "There are {0} items.")</p>
