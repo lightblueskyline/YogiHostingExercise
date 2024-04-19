@@ -348,3 +348,11 @@ Exception Filters 當異常出現時執行
 
 [Configuring Application in ASP.NET Core](https://www.yogihosting.com/aspnet-core-configurations/)  
 [View Components](https://www.yogihosting.com/aspnet-core-views/#view-components)
+
+## Identity
+
+### [Setup & Configuration](https://www.yogihosting.com/aspnet-core-identity-setup/)
+
+[Entity Framework Core](https://www.yogihosting.com/category/ef-core/)  
+[How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
+[Migrations in Entity Framework Core](https://www.yogihosting.com/migrations-entity-framework-core/)
