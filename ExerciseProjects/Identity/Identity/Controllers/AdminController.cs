@@ -9,11 +9,16 @@ namespace Identity.Controllers
     {
         private readonly UserManager<AppUser> userManager;
         private readonly IPasswordHasher<AppUser> passwordHasher;
+        private readonly IPasswordValidator<AppUser> passwordValidator;
+        private readonly IUserValidator<AppUser> userValidator;
 
-        public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHasher)
+        public AdminController(UserManager<AppUser> usrMgr, IPasswordHasher<AppUser> passwordHasher,
+            IPasswordValidator<AppUser> passwordValidator, IUserValidator<AppUser> userValidator)
         {
             this.userManager = usrMgr;
             this.passwordHasher = passwordHasher;
+            this.passwordValidator = passwordValidator;
+            this.userValidator = userValidator;
         }
 
         public IActionResult Index()
@@ -70,28 +75,49 @@ namespace Identity.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(string id, string email, string password)
         {
+            // 注意：更新時不會自動應用自定義驗證策略
+            // 需要自行添加
             AppUser? user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
+                IdentityResult? validEmail = null;
                 if (!String.IsNullOrEmpty(email))
                 {
-                    user.Email = email;
+                    validEmail = await this.userValidator.ValidateAsync(this.userManager, user);
+                    if (validEmail.Succeeded)
+                    {
+                        user.Email = email;
+                    }
+                    else
+                    {
+                        Errors(validEmail);
+                    }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Email cannot be empty");
                 }
 
+                IdentityResult? validPass = null;
                 if (!String.IsNullOrEmpty(password))
                 {
-                    user.PasswordHash = this.passwordHasher.HashPassword(user, password);
+                    validPass = await this.passwordValidator.ValidateAsync(userManager, user, password);
+                    if (validPass.Succeeded)
+                    {
+                        user.PasswordHash = this.passwordHasher.HashPassword(user, password);
+                    }
+                    else
+                    {
+                        Errors(validPass);
+                    }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Password cannot be empty");
                 }
 
-                if (!String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(password))
+                if (!String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(password) &&
+                    (validEmail ?? new IdentityResult()).Succeeded && (validPass ?? new IdentityResult()).Succeeded)
                 {
                     IdentityResult result = await userManager.UpdateAsync(user);
                     if (result.Succeeded)

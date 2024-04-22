@@ -375,3 +375,8 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [CRUD Operations in Entity Framework and ASP.NET](https://www.yogihosting.com/crud-operations-ef/)  
 [Controllers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-controllers/)  
 [ASP.NET Core Action method](https://www.yogihosting.com/aspnet-core-actions/)
+
+### [Username, Email & Password policy](https://www.yogihosting.com/aspnet-core-identity-username-email-password-policy/)
+
+[Globalization and Localization with Resource Files in ASP.NET Core](https://www.yogihosting.com/globalization-localization-resource-files-aspnet-core/)  
+[Entity Framework Core](https://www.yogihosting.com/category/ef-core/)

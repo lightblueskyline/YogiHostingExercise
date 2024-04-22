@@ -1,7 +1,7 @@
+using Identity.IdentifyPolicy;
 using Identity.Models;
 
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Identity
 {
@@ -20,6 +20,27 @@ namespace Identity
                 .AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<SqliteAppIdentityDbContext>()
                 .AddDefaultTokenProviders();
+
+            #region 密碼策略
+            builder.Services.Configure<IdentityOptions>(opts =>
+            {
+                opts.Password.RequiredLength = 8;
+                opts.Password.RequireLowercase = true;
+
+                #region ASP.NET Core Identity Username and Email Policy
+                opts.User.RequireUniqueEmail = true;
+                opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+                #endregion
+            });
+            #endregion
+
+            #region 注冊：自定義密碼驗證策略
+            builder.Services.AddTransient<IPasswordValidator<AppUser>, CustomPasswordPolicy>();
+            #endregion
+
+            #region 注冊：自定義 Username and Email 驗證策略
+            builder.Services.AddTransient<IUserValidator<AppUser>, CustomUsernameEmailPolicy>();
+            #endregion
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -46,7 +67,7 @@ namespace Identity
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Admin}/{action=Index}/{id?}");
 
             app.Run();
         }
