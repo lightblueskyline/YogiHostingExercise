@@ -1,5 +1,7 @@
 using Identity.Models;
 
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 using System.Diagnostics;
@@ -9,15 +11,24 @@ namespace Identity.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<AppUser> userManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
         {
             _logger = logger;
+            this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        [Authorize]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            AppUser? user = await this.userManager.GetUserAsync(HttpContext.User);
+            string message = "Hello";
+            if (user != null)
+            {
+                message = $"Hello {user.UserName}";
+            }
+            return View((object)message);
         }
 
         public IActionResult Privacy()
@@ -29,6 +40,12 @@ namespace Identity.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [Authorize]
+        public IActionResult Secured()
+        {
+            return View((object)"Hello");
         }
     }
 }

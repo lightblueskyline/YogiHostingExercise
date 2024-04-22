@@ -380,3 +380,9 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 
 [Globalization and Localization with Resource Files in ASP.NET Core](https://www.yogihosting.com/globalization-localization-resource-files-aspnet-core/)  
 [Entity Framework Core](https://www.yogihosting.com/category/ef-core/)
+
+### [User Authentication](https://www.yogihosting.com/aspnet-core-identity-authentication/)
+
+[Dependency Injection feature of ASP.NET Core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[Model Binding](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[ASP.NET Core JWT Authentication and Authorization of Web API [Detailed]](https://www.yogihosting.com/jwt-api-aspnet-core/)

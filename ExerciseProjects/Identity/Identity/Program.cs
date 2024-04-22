@@ -42,6 +42,10 @@ namespace Identity
             builder.Services.AddTransient<IUserValidator<AppUser>, CustomUsernameEmailPolicy>();
             #endregion
 
+            #region Changing the Default Login URL in Identity
+            //builder.Services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Authenticate/Login");
+            #endregion
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -67,7 +71,7 @@ namespace Identity
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Admin}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
