@@ -368,3 +368,10 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [Entity Framework Core](https://www.yogihosting.com/category/ef-core/)  
 [How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
 [Migrations in Entity Framework Core](https://www.yogihosting.com/migrations-entity-framework-core/)
+
+### [Create, Read, Update, Delete users](https://www.yogihosting.com/aspnet-core-identity-create-read-update-delete-users/)
+
+[Dependency Injection](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[CRUD Operations in Entity Framework and ASP.NET](https://www.yogihosting.com/crud-operations-ef/)  
+[Controllers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-controllers/)  
+[ASP.NET Core Action method](https://www.yogihosting.com/aspnet-core-actions/)
