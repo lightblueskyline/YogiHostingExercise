@@ -12,11 +12,13 @@ namespace Identity
             var builder = WebApplication.CreateBuilder(args);
 
             // Database Connection String
-            builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
+            //builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
+            // Sqlite
+            builder.Services.AddDbContext<SqliteAppIdentityDbContext>();
             // Set up ASP.NET Core Identity as a Service
             builder.Services
                 .AddIdentity<AppUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddEntityFrameworkStores<SqliteAppIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add services to the container.

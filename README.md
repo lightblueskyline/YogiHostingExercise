@@ -353,6 +353,18 @@ Exception Filters 當異常出現時執行
 
 ### [Setup & Configuration](https://www.yogihosting.com/aspnet-core-identity-setup/)
 
+```csharp
+/**
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+dotnet ef migrations add MyCommand1 // 添加遷移
+dotnet ef migrations add SqliteInitial --context SqliteAppIdentityDbContext
+dotnet ef database update // 更新數據庫
+dotnet ef database update --context SqliteAppIdentityDbContext
+ */
+```
+
+[Entity Framework Core tools reference - .NET Core CLI](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 [Entity Framework Core](https://www.yogihosting.com/category/ef-core/)  
 [How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)  
 [Migrations in Entity Framework Core](https://www.yogihosting.com/migrations-entity-framework-core/)
