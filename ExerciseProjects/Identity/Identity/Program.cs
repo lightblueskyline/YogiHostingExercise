@@ -55,6 +55,13 @@ namespace Identity
             });
             #endregion
 
+            #region ×Ô¶¨Áx Access Denied ®‹Ãæ
+            builder.Services.ConfigureApplicationCookie(opts =>
+            {
+                //opts.AccessDeniedPath = "/Stop/Index";
+            });
+            #endregion
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

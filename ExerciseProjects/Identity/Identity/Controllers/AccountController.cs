@@ -58,5 +58,9 @@ namespace Identity.Controllers
             return RedirectToAction("Index", "Home");
         }
         #endregion
+
+        #region ASP.NET Core Identity Role based Authentication
+        public IActionResult AccessDenied() => View();
+        #endregion
     }
 }

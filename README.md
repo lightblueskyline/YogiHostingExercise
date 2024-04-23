@@ -387,3 +387,10 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [Model Binding](https://www.yogihosting.com/aspnet-core-model-binding/)  
 [ASP.NET Core JWT Authentication and Authorization of Web API [Detailed]](https://www.yogihosting.com/jwt-api-aspnet-core/)  
 [Globalization and Localization with Resource Files in ASP.NET Core](https://www.yogihosting.com/globalization-localization-resource-files-aspnet-core/)
+
+### [Roles in Identity](https://www.yogihosting.com/aspnet-core-identity-roles/)
+
+[Custom Tag Helper](https://www.yogihosting.com/aspnet-core-custom-tag-helpers/)  
+[How to Implement Cookie Authentication in ASP.NET Core](https://www.yogihosting.com/aspnet-core-cookie-authentication/)  
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
+[ASP.NET Core JWT Authentication and Authorization of Web API [Detailed]](https://www.yogihosting.com/jwt-api-aspnet-core/)

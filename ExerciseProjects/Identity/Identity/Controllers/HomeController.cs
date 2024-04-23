@@ -42,10 +42,24 @@ namespace Identity.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize]
-        public IActionResult Secured()
+        //[Authorize]
+        [Authorize(Roles = "Manager")] // ASP.NET Core Identity Role based Authentication
+        public async Task<IActionResult> Secured()
         {
-            return View((object)"Hello");
+            //return View((object)"Hello");
+
+            #region ASP.NET Core Identity Role based Authentication
+            AppUser? user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user != null)
+            {
+                string message = $"Hello {user.UserName}";
+                return View((object)message);
+            }
+            else
+            {
+                return View((object)"No User");
+            }
+            #endregion
         }
     }
 }
