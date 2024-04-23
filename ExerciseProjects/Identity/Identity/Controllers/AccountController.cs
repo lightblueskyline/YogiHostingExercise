@@ -38,7 +38,8 @@ namespace Identity.Controllers
                 if (appUser != null)
                 {
                     await this.signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await this.signInManager.PasswordSignInAsync(appUser, (login.Password ?? ""), false, false);
+                    // ASP.NET Core Identity Remember Me
+                    Microsoft.AspNetCore.Identity.SignInResult result = await this.signInManager.PasswordSignInAsync(appUser, (login.Password ?? ""), login.Remember, false);
                     if (result.Succeeded)
                     {
                         return Redirect((login.ReturnUrl ?? "/"));
@@ -47,6 +48,14 @@ namespace Identity.Controllers
                 ModelState.AddModelError(nameof(login.Email), "Login Failed: Invalid Email or password");
             }
             return View(login);
+        }
+        #endregion
+
+        #region Logout
+        public async Task<IActionResult> Logout()
+        {
+            await this.signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
         #endregion
     }

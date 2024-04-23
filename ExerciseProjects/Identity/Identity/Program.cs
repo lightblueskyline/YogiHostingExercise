@@ -46,6 +46,15 @@ namespace Identity
             //builder.Services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Authenticate/Login");
             #endregion
 
+            #region ASP.NET Core Identity Cookie
+            builder.Services.ConfigureApplicationCookie(opts =>
+            {
+                opts.Cookie.Name = ".AspNetCore.Identity.Application";
+                opts.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                opts.SlidingExpiration = true;
+            });
+            #endregion
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
