@@ -406,3 +406,14 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 
 [Creating the Identity Database using the EF Core Migration Commands](https://www.yogihosting.com/aspnet-core-identity-setup/#migrations)  
 [Actions in ASP.NET Core](https://www.yogihosting.com/aspnet-core-actions/)
+
+### [Claims in Identity](https://www.yogihosting.com/aspnet-core-identity-claims/)
+
+```csharp
+/**
+刪除 Claim 之後，需要登出，重新登入才能生效。
+ */
+```
+
+[How to work with Roles in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-roles/)  
+[ASP.NET Core tutorials](https://www.yogihosting.com/category/aspnet-core/)

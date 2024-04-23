@@ -50,7 +50,7 @@ namespace Identity
             builder.Services.ConfigureApplicationCookie(opts =>
             {
                 opts.Cookie.Name = ".AspNetCore.Identity.Application";
-                opts.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                opts.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 opts.SlidingExpiration = true;
             });
             #endregion
