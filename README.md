@@ -394,3 +394,15 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [How to Implement Cookie Authentication in ASP.NET Core](https://www.yogihosting.com/aspnet-core-cookie-authentication/)  
 [How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
 [ASP.NET Core JWT Authentication and Authorization of Web API [Detailed]](https://www.yogihosting.com/jwt-api-aspnet-core/)
+
+### [Custom User Properties](https://www.yogihosting.com/aspnet-core-identity-custom-user-properties/)
+
+```csharp
+/**
+dotnet ef migrations add AddCustomUserProperties --context SqliteAppIdentityDbContext
+dotnet ef database update --context SqliteAppIdentityDbContext
+ */
+```
+
+[Creating the Identity Database using the EF Core Migration Commands](https://www.yogihosting.com/aspnet-core-identity-setup/#migrations)  
+[Actions in ASP.NET Core](https://www.yogihosting.com/aspnet-core-actions/)

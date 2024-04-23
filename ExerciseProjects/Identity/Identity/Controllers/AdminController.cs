@@ -38,6 +38,9 @@ namespace Identity.Controllers
                 {
                     UserName = user.Name,
                     Email = user.Email,
+                    Country = user.Country,
+                    Age = user.Age,
+                    Salary = user.Salary,
                 };
                 // Table: AspNetUsers
                 IdentityResult result = await userManager.CreateAsync(appUser, (user.Password ?? ""));
@@ -73,7 +76,8 @@ namespace Identity.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(string id, string email, string password)
+        public async Task<IActionResult> Update(string id, string email, string password,
+            int age, string country, string salary)
         {
             // 注意：更新時不會自動應用自定義驗證策略
             // 需要自行添加
@@ -116,8 +120,24 @@ namespace Identity.Controllers
                     ModelState.AddModelError("", "Password cannot be empty");
                 }
 
+                user.Age = age;
+
+                Country myCountry;
+                Enum.TryParse(country, out myCountry);
+                user.Country = myCountry;
+
+                if (!String.IsNullOrEmpty(salary))
+                {
+                    user.Salary = salary;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Salary cannot be empty");
+                }
+
                 if (!String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(password) &&
-                    (validEmail ?? new IdentityResult()).Succeeded && (validPass ?? new IdentityResult()).Succeeded)
+                    (validEmail ?? new IdentityResult()).Succeeded && (validPass ?? new IdentityResult()).Succeeded &&
+                    !String.IsNullOrEmpty(salary))
                 {
                     IdentityResult result = await userManager.UpdateAsync(user);
                     if (result.Succeeded)

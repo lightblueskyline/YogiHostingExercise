@@ -14,5 +14,14 @@ namespace Identity.Models
 
         [Required]
         public string? Password { get; set; }
+
+        #region Custom User Properties
+        public Country Country { get; set; }
+
+        public int Age { get; set; }
+
+        [Required]
+        public string? Salary { get; set; }
+        #endregion
     }
 }
