@@ -1,6 +1,7 @@
+using Identity.CustomPolicy;
 using Identity.IdentifyPolicy;
 using Identity.Models;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
 namespace Identity
@@ -59,6 +60,39 @@ namespace Identity
             builder.Services.ConfigureApplicationCookie(opts =>
             {
                 //opts.AccessDeniedPath = "/Stop/Index";
+            });
+            #endregion
+
+            #region Create ASP.NET Core Identity Policy Éí·Ý²ßÂÔ
+            builder.Services.AddAuthorization(opts =>
+            {
+                opts.AddPolicy("AspManager", policy =>
+                {
+                    policy.RequireRole("Manager");
+                    policy.RequireClaim("Coding-Skill", "ASP.NET Core MVC");
+                });
+            });
+            #endregion
+
+            #region Custom Requirement to an Identity Policy
+            builder.Services.AddTransient<IAuthorizationHandler, AllowUsersHandler>();
+            builder.Services.AddAuthorization(opts =>
+            {
+                opts.AddPolicy("AllowTom", policy =>
+                {
+                    policy.AddRequirements(new AllowUserPolicy("tom", "tom1", "tom2"));
+                });
+            });
+            #endregion
+
+            #region Apply Policy without [Authorize] attribute
+            builder.Services.AddTransient<IAuthorizationHandler, AllowPrivateHandler>();
+            builder.Services.AddAuthorization(opts =>
+            {
+                opts.AddPolicy("PrivateAccess", policy =>
+                {
+                    policy.AddRequirements(new AllowPrivatePolicy());
+                });
             });
             #endregion
 

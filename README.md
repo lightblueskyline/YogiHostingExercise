@@ -417,3 +417,9 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 
 [How to work with Roles in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-roles/)  
 [ASP.NET Core tutorials](https://www.yogihosting.com/category/aspnet-core/)
+
+### [Policies in Identity](https://www.yogihosting.com/aspnet-core-identity-policies/)
+
+[How to Create, Read, Update & Delete users in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-create-read-update-delete-users/)  
+[How to do Authentication of Users in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-authentication/)  
+[Learn ASP.NET Core Convention-Based URL Routing](https://www.yogihosting.com/aspnet-core-url-routing/)

@@ -12,10 +12,13 @@ namespace Identity.Controllers
     public class ClaimsController : Controller
     {
         private readonly UserManager<AppUser> userManager;
+        private readonly IAuthorizationService authorizationService;
 
-        public ClaimsController(UserManager<AppUser> userManager)
+        public ClaimsController(UserManager<AppUser> userManager,
+            IAuthorizationService authorizationService)
         {
             this.userManager = userManager;
+            this.authorizationService = authorizationService;
         }
 
         public ViewResult Index() => View(User?.Claims);
@@ -79,6 +82,32 @@ namespace Identity.Controllers
                 }
             }
             return View(nameof(Index));
+        }
+        #endregion
+
+        #region ASP.NET Core Identity Policy Authorization
+        [Authorize(Policy = "AspManager")]
+        public IActionResult Project() => View(nameof(Index), User?.Claims);
+        #endregion
+
+        #region Custom Requirement to an Identity Policy
+        [Authorize(Policy = "AllowTom")]
+        public ViewResult TomFiels() => View(nameof(Index), User?.Claims);
+        #endregion
+
+        #region Apply Policy without [Authorize] attribute
+        public async Task<IActionResult> PrivateAccess(string title)
+        {
+            string[] allowUsers = { "tom", "alice" };
+            AuthorizationResult authorized = await this.authorizationService.AuthorizeAsync(User, allowUsers, "PrivateAccess");
+            if (authorized.Succeeded)
+            {
+                return View(nameof(Index), User?.Claims);
+            }
+            else
+            {
+                return new ChallengeResult();
+            }
         }
         #endregion
     }
