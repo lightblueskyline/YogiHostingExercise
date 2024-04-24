@@ -1,6 +1,7 @@
 using Identity.CustomPolicy;
 using Identity.IdentifyPolicy;
 using Identity.Models;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -94,6 +95,16 @@ namespace Identity
                     policy.AddRequirements(new AllowPrivatePolicy());
                 });
             });
+            #endregion
+
+            #region Communicate with Google Cloud Console project
+            builder.Services.AddAuthentication()
+                .AddGoogle(opts =>
+                {
+                    opts.ClientId = "50464872240-uu8btpouov03h86agoiv5n6114jmv39u.apps.googleusercontent.com";
+                    opts.ClientSecret = "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";
+                    opts.SignInScheme = IdentityConstants.ExternalScheme;
+                });
             #endregion
 
             // Add services to the container.

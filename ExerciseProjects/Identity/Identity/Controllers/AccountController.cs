@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
+using System.Security.Claims;
+
 namespace Identity.Controllers
 {
     [Authorize]
@@ -61,6 +63,51 @@ namespace Identity.Controllers
 
         #region ASP.NET Core Identity Role based Authentication
         public IActionResult AccessDenied() => View();
+        #endregion
+
+        #region Communicate with Google Cloud Console project
+        [AllowAnonymous]
+        public IActionResult GoogleLogin()
+        {
+            string? redirectUrl = Url.Action("GoogleResponse", "Account");
+            var properties = this.signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
+            return new ChallengeResult("Google", properties);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> GoogleResponse()
+        {
+            ExternalLoginInfo? info = await this.signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+            var result = await this.signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
+            string[] userInfo = { (info?.Principal?.FindFirst(ClaimTypes.Name)?.Value ?? ""), (info?.Principal?.FindFirst(ClaimTypes.Email)?.Value ?? "") };
+            if (result.Succeeded)
+            {
+                return View(userInfo);
+            }
+            else
+            {
+                AppUser user = new AppUser
+                {
+                    Email = info?.Principal?.FindFirst(ClaimTypes.Email)?.Value,
+                    UserName = info?.Principal?.FindFirst(ClaimTypes.Email)?.Value,
+                };
+                IdentityResult identityResult = await this.userManager.CreateAsync(user);
+                if (identityResult.Succeeded)
+                {
+                    identityResult = await this.userManager.AddLoginAsync(user, (info ?? new UserLoginInfo("", "", "")));
+                    if (identityResult.Succeeded)
+                    {
+                        await this.signInManager.SignInAsync(user, false);
+                        return View(userInfo);
+                    }
+                }
+                return AccessDenied();
+            }
+        }
         #endregion
     }
 }
