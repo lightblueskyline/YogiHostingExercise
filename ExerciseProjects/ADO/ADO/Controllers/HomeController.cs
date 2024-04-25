@@ -81,5 +81,42 @@ namespace ADO.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        #region Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Inventory inventory)
+        {
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                string sql = $"insert into Inventory (Name,Price,Quantity) values ($Name,$Price,$Quantity)";
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("$Name", inventory.Name);
+                    command.Parameters.AddWithValue("$Price", inventory.Price);
+                    command.Parameters.AddWithValue("$Quantity", inventory.Quantity);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    //SqliteParameter parameter = new SqliteParameter
+                    //{
+                    //    ParameterName = "$Name",
+                    //    Value = inventory.Name,
+                    //    SqliteType = SqliteType.Text,
+                    //    //Size = 50,
+                    //};
+                    //command.Parameters.Add(parameter);
+                }
+            }
+            ViewBag.Result = "Success";
+            return View();
+        }
+        #endregion
     }
 }

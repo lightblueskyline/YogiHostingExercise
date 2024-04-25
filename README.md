@@ -440,3 +440,10 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [How to Perform CRUD Operations in SQL Server](https://www.yogihosting.com/crud-operations-sql-server/)  
 [First ASP.NET Core 6.0 MVC Application](https://www.yogihosting.com/aspnet-core-first-application/)  
 [How to Install Bootstrap Package in ASP.NET Core Application in Visual Studio](https://www.yogihosting.com/install-bootstrap-aspnet-core/)
+
+### [Create Records](https://www.yogihosting.com/create-records-ado-net-aspnet-core/)
+
+[tag helper](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
+[dependency injection](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[Insert Records in Entity Framework Core](https://www.yogihosting.com/insert-records-entity-framework-core/)  
+[Learn Attribute Routing in ASP.NET Core](https://www.yogihosting.com/aspnet-core-attribute-routing/)
