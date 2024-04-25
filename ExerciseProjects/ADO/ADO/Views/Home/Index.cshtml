@@ -7,7 +7,14 @@
 <h1>Inventory <a asp-action="Create" class="btn btn-sm btn-secondary">Create</a></h1>
 <table class="table table-bordered table-sm table-striped">
     <thead>
-        <tr><th>Id</th><th>Name</th><th>Price</th><th>Quantity</th><th>Added On</th></tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Added On</th>
+            <th>Update</th>
+        </tr>
     </thead>
     <tbody>
         @if (Model == null)
@@ -24,6 +31,9 @@
                     <td>@string.Format(new System.Globalization.CultureInfo("en-US"), "{0:C2}", p.Price)</td>
                     <td>@p.Quantity</td>
                     <td>@string.Format("{0:yyyy/MM/dd HH:mm:ss}", p.AddedOn)</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@p.ID">Update</a>
+                    </td>
                 </tr>
             }
         }

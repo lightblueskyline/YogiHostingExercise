@@ -452,3 +452,9 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 
 [How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)  
 [Custom Paging in Asp.Net without using controls like GridView and Repeater](https://www.yogihosting.com/custom-paging-in-asp-net-without-using-controls-like-gridview-and-repeater/)
+
+### [Update Records](https://www.yogihosting.com/update-records-ado-net-aspnet-core/)
+
+[Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
+[Model Binding](https://www.yogihosting.com/aspnet-core-model-binding/)  
+[Update Records in Entity Framework Core](https://www.yogihosting.com/update-records-entity-framework-core/)

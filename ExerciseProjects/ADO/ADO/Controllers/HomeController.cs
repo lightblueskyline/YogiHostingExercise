@@ -130,5 +130,60 @@ namespace ADO.Controllers
             return View();
         }
         #endregion
+
+        #region Update
+        public IActionResult Update(int id)
+        {
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+            Inventory inventory = new Inventory();
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                string sql = $"select * from Inventory where ID=$ID";
+                connection.Open();
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("$ID", id);
+                    using (SqliteDataReader dataReader = command.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            inventory.ID = Convert.ToInt32(dataReader["ID"]);
+                            inventory.Name = Convert.ToString(dataReader["Name"]);
+                            inventory.Price = Convert.ToDecimal(dataReader["Price"]);
+                            inventory.Quantity = Convert.ToInt32(dataReader["Quantity"]);
+                            inventory.AddedOn = Convert.ToDateTime(dataReader["AddedOn"]);
+                        }
+                    }
+                }
+                connection.Close();
+            }
+            return View(inventory);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Inventory inventory, int id)
+        {
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                string sql = $"update Inventory set Name=$Name,Price=$Price,Quantity=$Quantity where ID=$ID";
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("$Name", inventory.Name);
+                    command.Parameters.AddWithValue("$Price", inventory.Price);
+                    command.Parameters.AddWithValue("$Quantity", inventory.Quantity);
+                    command.Parameters.AddWithValue("$ID", id);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+        #endregion
     }
 }
