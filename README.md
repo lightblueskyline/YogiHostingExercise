@@ -447,3 +447,8 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [dependency injection](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
 [Insert Records in Entity Framework Core](https://www.yogihosting.com/insert-records-entity-framework-core/)  
 [Learn Attribute Routing in ASP.NET Core](https://www.yogihosting.com/aspnet-core-attribute-routing/)
+
+### [Read Records](https://www.yogihosting.com/read-records-ado-net-aspnet-core/)
+
+[How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)  
+[Custom Paging in Asp.Net without using controls like GridView and Repeater](https://www.yogihosting.com/custom-paging-in-asp-net-without-using-controls-like-gridview-and-repeater/)

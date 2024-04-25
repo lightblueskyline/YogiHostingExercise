@@ -26,49 +26,61 @@ namespace ADO.Controllers
 
         public IActionResult Index()
         {
+            List<Inventory> inventories = new List<Inventory>();
+
             #region Reading Connection String in Controller
             string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
             #endregion
 
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
-                string sql = "select * from Inventory";
-                SqliteCommand command = connection.CreateCommand();
-                command.CommandText = sql;
                 connection.Open();
-                //command.ExecuteNonQuery();
+                string sql = "select * from Inventory";
+                //SqliteCommand command = connection.CreateCommand();
+                //command.CommandText = sql;
+                SqliteCommand command = new SqliteCommand(sql, connection);
 
                 #region SqliteDataReader
                 using (SqliteDataReader dataReader = command.ExecuteReader())
                 {
                     while (dataReader.Read())
                     {
-                        // dataReader.FieldCount 取得當前所讀取記錄的欄位數量
-                        for (int i = 0; i < dataReader.FieldCount; i++)
+                        #region dataReader.FieldCount 取得當前所讀取記錄的欄位數量
+                        //for (int i = 0; i < dataReader.FieldCount; i++)
+                        //{
+                        //    string currentColName = dataReader.GetName(i); // 取得欄位名稱
+                        //    string? currentColValue = Convert.ToString(dataReader.GetValue(i)); // 取得欄位值
+                        //}
+                        #endregion
+
+                        inventories.Add(new Inventory
                         {
-                            string currentColName = dataReader.GetName(i); // 取得欄位名稱
-                            string? currentColValue = Convert.ToString(dataReader.GetValue(i)); // 取得欄位值
-                        }
+                            ID = Convert.ToInt32(dataReader["ID"]),
+                            Name = Convert.ToString(dataReader["Name"]),
+                            Price = Convert.ToDecimal(dataReader["Price"]),
+                            Quantity = Convert.ToInt32(dataReader["Quantity"]),
+                            AddedOn = Convert.ToDateTime(dataReader["AddedOn"]),
+                        });
                     }
                 }
                 #endregion
 
                 #region Sqlite DataAdapter
-                // Microsoft.Data.Sqlite 中無類似 SqlDataAdapter
-                using (SqliteCommand command1 = new SqliteCommand(sql, connection))
-                {
-                    using (SqliteDataReader dataReader1 = command1.ExecuteReader())
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(dataReader1);
-                    }
-                }
+                //// Microsoft.Data.Sqlite 中無類似 SqlDataAdapter
+                //using (SqliteCommand command1 = new SqliteCommand(sql, connection))
+                //{
+                //    using (SqliteDataReader dataReader1 = command1.ExecuteReader())
+                //    {
+                //        DataTable dataTable = new DataTable();
+                //        dataTable.Load(dataReader1);
+                //    }
+                //}
                 #endregion
 
                 connection.Close();
             }
 
-            return View();
+            return View(inventories);
         }
 
         public IActionResult Privacy()

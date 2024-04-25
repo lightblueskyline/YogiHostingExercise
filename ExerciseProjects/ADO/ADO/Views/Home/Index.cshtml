@@ -1,8 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Inventory>
+
+@{
+    ViewData["Title"] = "Read Inventory";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Inventory <a asp-action="Create" class="btn btn-sm btn-secondary">Create</a></h1>
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr><th>Id</th><th>Name</th><th>Price</th><th>Quantity</th><th>Added On</th></tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr><td colspan="5" class="text-center">No Model Data</td></tr>
+        }
+        else
+        {
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.ID</td>
+                    <td>@p.Name</td>
+                    <td>@string.Format(new System.Globalization.CultureInfo("en-US"), "{0:C2}", p.Price)</td>
+                    <td>@p.Quantity</td>
+                    <td>@string.Format("{0:yyyy/MM/dd HH:mm:ss}", p.AddedOn)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
