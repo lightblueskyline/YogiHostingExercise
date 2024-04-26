@@ -199,12 +199,69 @@ namespace ADO.Controllers
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("$ID", id);
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (SqliteException ex)
+                    {
+                        ViewBag.Result = $"Operation got error: {ex.Message}";
+                    }
                     connection.Close();
                 }
             }
 
             return RedirectToAction(nameof(Index));
+        }
+        #endregion
+
+        #region Database Transaction with ADO.NET SqlTransaction
+        public IActionResult TransferMoney()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult TransferMoney(bool throwEx)
+        {
+            string result = "";
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                SqliteCommand cmdRemove = new SqliteCommand("update Account set Money='0' where Name='Putin'", connection);
+                SqliteCommand cmdAdd = new SqliteCommand("update Account set Money='200' where Name='Trump'", connection);
+                connection.Open();
+                SqliteTransaction? tx = null;
+                try
+                {
+                    tx = connection.BeginTransaction();
+                    // 加入事務
+                    cmdRemove.Transaction = tx;
+                    cmdAdd.Transaction = tx;
+                    // 執行指令
+                    cmdRemove.ExecuteNonQuery();
+                    cmdAdd.ExecuteNonQuery();
+                    // 模擬錯誤
+                    if (throwEx)
+                    {
+                        throw new Exception("Sorry! Database error! Transaction failed");
+                    }
+                    // 提交
+                    tx.Commit();
+                    result = "Success";
+                }
+                catch (Exception ex)
+                {
+                    tx?.Rollback();
+                    result = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            return View((object)result);
         }
         #endregion
     }
