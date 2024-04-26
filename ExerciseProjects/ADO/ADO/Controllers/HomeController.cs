@@ -185,5 +185,27 @@ namespace ADO.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
+        #region Delete
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                string sql = $"delete from Inventory where ID=$ID";
+                using (SqliteCommand command = new SqliteCommand(sql, connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("$ID", id);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+        #endregion
     }
 }

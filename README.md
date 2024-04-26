@@ -458,3 +458,8 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
 [Model Binding](https://www.yogihosting.com/aspnet-core-model-binding/)  
 [Update Records in Entity Framework Core](https://www.yogihosting.com/update-records-entity-framework-core/)
+
+### [Delete Records](https://www.yogihosting.com/delete-records-ado-net-aspnet-core/)
+
+[Built-In Tag Helpers in ASP.NET Core](https://www.yogihosting.com/aspnet-core-built-in-tag-helpers/)  
+[Delete Records in Entity Framework Core](https://www.yogihosting.com/delete-records-entity-framework-core/)
