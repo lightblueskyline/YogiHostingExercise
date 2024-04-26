@@ -264,5 +264,61 @@ namespace ADO.Controllers
             return View((object)result);
         }
         #endregion
+
+        #region ADO.NET SqlBulkCopy
+        public IActionResult TransferData() => View();
+
+        [HttpPost]
+        [ActionName("TransferData")]
+        public IActionResult TransferData_Post()
+        {
+            string? connectionString = this.configuration["ConnectionStrings:SqliteDefaultConnection"];
+
+            //SqliteConnection connection = new SqliteConnection(connectionString);
+            //string sql = $"select * from AccountData";
+            //SqliteCommand command = new SqliteCommand(sql, connection);
+            //connection.Open();
+            //SqliteDataReader dataReader = command.ExecuteReader();
+            //// create a SqlBulkCopy object
+            //SqlBulkCopy sqlBulk = new SqlBulkCopy(connection);
+            ////Give your Destination table name
+            //sqlBulk.DestinationTableName = "Account";
+            ////Mappings
+            //sqlBulk.ColumnMappings.Add("PersonName", "Name");
+            //sqlBulk.ColumnMappings.Add("TotalCash", "Money");
+            ////Copy rows to destination table
+            //sqlBulk.WriteToServer(dataReader);
+
+            #region 通過事務模擬
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand("select * from AccountData", connection);
+                SqliteDataReader dataReader = command.ExecuteReader();
+                using (SqliteTransaction transaction = connection.BeginTransaction())
+                {
+                    string insertSql = "insert into Account (Name,Money) values ($Name,$Money)";
+                    using (SqliteCommand command1 = new SqliteCommand(insertSql, connection, transaction))
+                    {
+                        // 添加參數
+                        command1.Parameters.Add("$Name", SqliteType.Text);
+                        command1.Parameters.Add("$Money", SqliteType.Text);
+                        while (dataReader.Read())
+                        {
+                            // 設置參數
+                            command1.Parameters["$Name"].Value = dataReader["PersonName"];
+                            command1.Parameters["$Money"].Value = dataReader["TotalCash"];
+                            // 執行插入操作
+                            command1.ExecuteNonQuery();
+                        }
+                    }
+                    transaction.Commit();
+                }
+            }
+            #endregion
+
+            return View();
+        }
+        #endregion
     }
 }

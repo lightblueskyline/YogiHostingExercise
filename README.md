@@ -465,3 +465,9 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [Delete Records in Entity Framework Core](https://www.yogihosting.com/delete-records-entity-framework-core/)
 
 ### [Try Catch Block](https://www.yogihosting.com/try-catch-block/)
+
+### [SqlBuldCopy Class](https://www.yogihosting.com/sqlbulkcopy-class-of-ado-net/)
+
+[Learn ASP.NET Core Convention-Based URL Routing](https://www.yogihosting.com/aspnet-core-url-routing/)  
+[Dependency Injection in ASP.NET Core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
+[Entity Framework Core](https://www.yogihosting.com/category/ef-core/)
