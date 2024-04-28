@@ -471,3 +471,70 @@ dotnet ef database update --context SqliteAppIdentityDbContext
 [Learn ASP.NET Core Convention-Based URL Routing](https://www.yogihosting.com/aspnet-core-url-routing/)  
 [Dependency Injection in ASP.NET Core](https://www.yogihosting.com/aspnet-core-dependency-injection/)  
 [Entity Framework Core](https://www.yogihosting.com/category/ef-core/)
+
+## Advanced Tutorials
+
+### [CORS in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)
+
+```csharp
+/**
+// Enable CORS in ASP.NET Core
+builder.Services.AddCors();
+
+// Shows UseCors with CorsPolicyBuilder.
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+// 指定域名
+app.UseCors(builder =>
+{
+    builder
+    .WithOrigins("https://www.yogihosting.com")
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials();
+});
+// 指定多個域名
+app.UseCors(builder =>
+{
+    builder
+    .WithOrigins(new string[] { "https://www.yogihosting.com", "https://example1.com", "https://example2.com" })
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials();
+});
+
+// Apply CORS policies per action or per controller
+// Adding CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyPolicy",
+        builder => builder.WithOrigins("https://www.yogihosting.com"));
+});
+// Shows UseCors with named policy.
+app.UseCors("MyPolicy");
+
+// Per Action
+[EnableCors("MyPolicy")]
+public IEnumerable<string> Get()
+{
+    return new string[] { "value1", "value2" };
+}
+
+// Per controller
+[EnableCors("MyPolicy")]
+public class HomeController : Controller 
+[DisableCors]
+public string Get(int id)
+{
+    return "value";
+}
+ */
+```
+
+[How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)
+[User Lockout in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-user-lockout/)
+[Fluent API in Entity Framework Core](https://www.yogihosting.com/fluent-api-entity-framework-core/)
