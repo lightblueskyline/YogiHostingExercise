@@ -535,6 +535,14 @@ public string Get(int id)
  */
 ```
 
-[How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)
-[User Lockout in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-user-lockout/)
+[How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)  
+[User Lockout in ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-user-lockout/)  
 [Fluent API in Entity Framework Core](https://www.yogihosting.com/fluent-api-entity-framework-core/)
+
+### [Cookie Authentication](https://www.yogihosting.com/aspnet-core-cookie-authentication/)
+
+[ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-setup/)  
+[How to Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://www.yogihosting.com/aspnet-core-enable-cors/)  
+[Filters in ASP.NET Core – Beginner to Expert level](https://www.yogihosting.com/aspnet-core-filters/)  
+[How to use Select2 jQuery plugin in ASP.NET CORE](https://www.yogihosting.com/select2-jquery-plugin-aspnet-core/)  
+[How to Setup and Configure ASP.NET Core Identity](https://www.yogihosting.com/aspnet-core-identity-setup/)
